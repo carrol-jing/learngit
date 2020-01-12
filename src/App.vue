@@ -1,10 +1,15 @@
 <template>
   <div class="app-container">
   <!-- 顶部header -->
-  <mt-header fixed title="固定在顶部"></mt-header>
+  <mt-header fixed title="购物"></mt-header>
 
   <!-- 中间路由区 -->
-  
+  <transition>
+	<router-view>
+	  
+  	</router-view>
+  </transition>
+
   <!-- 底部tab -->
   <nav class="mui-bar mui-bar-tab">
 			<router-link class="mui-tab-item" to="/home">
@@ -26,7 +31,7 @@
 				<span class="mui-tab-label">搜索</span>
 			</router-link>
 		</nav>
-  <h1>123</h1>
+  <!-- <h1>123</h1> -->
   </div>
 </template>
 
@@ -37,6 +42,21 @@
 <style scoped>
 .app-container{
   padding-top:40px;
+  overflow-x: hidden;
+}
+.v-enter
+{
+	opacity: 0;
+	transform: translateX(100%);
+}
+.v-leave-to{
+	opacity: 0;
+	transform: translateX(-100%);
+	position:absolute;
+}
+.v-enter-active,
+.v-leave-active{
+	transition: all 0.5s ease;
 }
 </style>
 
